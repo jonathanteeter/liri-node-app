@@ -25,7 +25,7 @@ console.log('-------------------------------------------');
 var getData = process.argv;
 var parameter2 = process.argv[2];
 var parameter3 = process.argv[3];
-console.log(parameter3);
+
 
 switch(parameter2) {
     case 'my-tweets':
@@ -34,10 +34,6 @@ switch(parameter2) {
         break;
     case 'spotify-this-song':
         // console.log(getData);
-        if(parameter3 = 'undefined') {
-            songName = 'The Sign';
-            artist = 'Ace of Base';
-        }
         searchSpotify();
         break;
     case 'movie-this':
@@ -52,6 +48,7 @@ switch(parameter2) {
         console.log('Invalid Entry');
 }
 
+
 function getTweets() {
 
     // GET last 20 Twitter tweets
@@ -61,10 +58,13 @@ function getTweets() {
         console.log('-------------------------------------------');
 
         if (!error) {
-            for (i = 1; i < tweets.length && i < 21; i++) {
-                console.log(i + ' - ' + tweets[i].text + ' - ' + tweets[i].created_at);
-                console.log('-------------------------------------------');
+            
+            tweets.reverse(); // ***************** NICE *****************
 
+            for (var i = 0; i < tweets.length && i < 20; i++) {
+
+                console.log((i+1) + ')  ' + tweets[i].text + '  [' + tweets[i].created_at + ']');
+                console.log('-------------------------------------------');
             }
         }
     });
@@ -73,24 +73,23 @@ function getTweets() {
 
 function searchSpotify() {
 
-    if(songName != 'The Sign') {
+    var songName = '';
+    // Loop through all the words in the node argument
+    // And do a little for-loop magic to handle the inclusion of "+"s
+    for (var i = 3; i < getData.length; i++) {
 
-        var songName = '';
+        if (i > 3 && i < getData.length) {
 
-        // Loop through all the words in the node argument
-        // And do a little for-loop magic to handle the inclusion of "+"s
-        for (var i = 3; i < getData.length; i++) {
-
-            if (i > 3 && i < getData.length) {
-
-                songName = songName + "+" + getData[i];
-                
-            }
-            else {
-                songName += getData[i];
-            }
-        }   
-    }
+            songName = songName + "+" + getData[i];
+            
+        }
+        else {
+            songName += getData[i];
+        }
+    }   
+    // BETTER WAY CAN REPLACE THE ABOVE FOR LOOP:
+    // var songName = process.argv.slice(3).join("+");
+    // as shown in below function getMovieInfo().
 
     // SEARCH Spotify for songs
     spotify.search({ type: 'track', query: songName }, function(err, data) {
@@ -98,17 +97,6 @@ function searchSpotify() {
             console.log('Error occurred: ' + err);
             return;
         }
-
-        // var songNameAPI = data.tracks.items[0].name;
-
-        // while (songName != songNameAPI || songNameAPI != 'undefined') {
-            
-        //     console.log('songItemsName = ' + songNameAPI);
-
-        //     songNameAPI = data.tracks.items[i].name; {
-        //     i++;
-        //     }
-        // }
 
         console.log('-------------------------------------------');
         console.log('Artist(s):  ' + data.tracks.items[0].artists[0].name);
@@ -127,20 +115,8 @@ function getMovieInfo() {
     
     // Store all of the arguments in an array
     // Create an empty variable for holding the movie name
-    var movieName = parameter3;
-
-    // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
-    for (var i = 3; i < getData.length; i++) {
-
-        if (i > 3 && i < getData.length) {
-
-            movieName = movieName + "+" + getData[i];
-        }
-        else {
-            movieName = getData[i];
-        }
-    }
+    
+    var movieName = process.argv.slice(3).join("+");
 
     // Then run a request to the OMDB API with the movie specified
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -211,8 +187,3 @@ function random() {
         });
     });
 };
-
-
-
-
-
