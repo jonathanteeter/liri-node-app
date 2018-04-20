@@ -87,8 +87,14 @@ function searchSpotify() {
             songName += getData[i];
         }
     }   
+    if (!songName) {
+        songName = 'The+Sign';
+    }
+    
+    console.log('songName = ' + songName);
+
     // BETTER WAY CAN REPLACE THE ABOVE FOR LOOP:
-    // var songName = process.argv.slice(3).join("+");
+    // *** var songName = process.argv.slice(3).join("+"); ***
     // as shown in below function getMovieInfo().
 
     // SEARCH Spotify for songs
@@ -117,6 +123,10 @@ function getMovieInfo() {
     // Create an empty variable for holding the movie name
     
     var movieName = process.argv.slice(3).join("+");
+
+    if (!movieName) {
+        movieName = 'Mr+Nobody';
+    }
 
     // Then run a request to the OMDB API with the movie specified
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
