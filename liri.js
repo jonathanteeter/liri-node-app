@@ -109,7 +109,7 @@ function searchSpotify() {
         console.log('-------------------------------------------');
         console.log('Song Name:  ' + data.tracks.items[0].name);
         console.log('-------------------------------------------');
-        console.log('Song Preview Link:  ' + data.tracks.items[0].preview_url);
+        console.log('Song Preview Link:  ' + data.tracks.items[1].preview_url);
         console.log('-------------------------------------------');
         console.log('Album:  ' + data.tracks.items[0].album.name);        
         console.log('-------------------------------------------');   
