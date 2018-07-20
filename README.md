@@ -21,4 +21,5 @@ This was an exercise in using these web technologies:  nodeJS, JavaScript, NPM l
 3)  Getting the desired song and movie information from the API response.  It took much trial and error.
 4)  Using the File System (fs) module for file i/o.
 
-## Link to [My Portfolio](https://teeterjm58.github.io/Basic-Portfolio/portfolio.html)
+## Link to [My Portfolio] 
+(https://teeterjm58.github.io/jtPortfolio/)
