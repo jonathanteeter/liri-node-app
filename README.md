@@ -1,25 +1,26 @@
 # liri-node-app
-## Introduction
-LIRI is a language interpretation and recognition interface similar to SIRI. 
+LIRI is a node.js application that provides "Language Interpretation and Recognition Interface" (LIRI) similar to SIRI.  LIRI receives commands from the node app and gives back data.  Whereas, SIRI receives voice commands and gives back data.
 
-## What the project does
-LIRI receives commands from the node app and gives back data.  Whereas SIRI receives voice commands and gives back data.
-
-## Limitations
-LIRI can take 4 commands from the GitBash command line and provide data using the respective APIs:
-1)  "node liri.js my-tweets" --- shows your last 20 tweets using the Twitter API
-2)  "node liri.js spotify-this-song <song name>" --- Provides information about the song using the Spotify API.
-3)  "node liri.js movie-this <movie name>" --- Provides information about the movie using the OMDB API.
-4)  "node liri.js do-what-it-says that reads a command from the random.text file and executes,.
-
-## Why the project is useful
-This was an exercise in using these web technologies:  nodeJS, JavaScript, NPM libraries, JSON packages, API keys (Twitter and Spotify), .env and gitignore files, and API queries.
+## Design & Technology
+* LIRI can take 4 commands from command line and provide data using the respective APIs:
+    * "node liri.js my-tweets" --- shows your last 20 tweets using the Twitter API
+    * "node liri.js spotify-this-song <song name>" --- Provides information about the song using the Spotify API.
+    * "node liri.js movie-this <movie name>" --- Provides information about the movie using the OMDB API.
+    * "node liri.js do-what-it-says that reads a command from the random.text file and executes.
+* Key technologies used to build this application are:
+    * nodeJS
+    * JavaScript
+    * NPM (request, file system, twitter, node-spotify-api, dotenv)
+    * package.json
+    * API keys (Twitter and Spotify)
+    * .env and .gitignore files
+    * API queries.
 
 ## Challenges
-1)  Node.js is a back-end technology that required practice (like with anything) to get it.
-2)  Setting up the keys file that points to a .env file that contains the actual keys.  The .env file is added to .gitignore meaning that the keys will not be pushed to GitHub and thus, will be secure.
-3)  Getting the desired song and movie information from the API response.  It took much trial and error.
-4)  Using the File System (fs) module for file i/o.
+* Node.js is a back-end technology that required practice (like with anything) to get it.
+* Setting up the keys file that points to a .env file that contains the actual keys took a couple tries.  The .env file is added to .gitignore meaning that the keys will not be pushed to GitHub and as a result, will be secure.
+* Getting the desired song and movie information from the API response took some trial and error.
+* Using the File System (fs) module for file i/o.
 
 ## Link to [My Portfolio] 
-(https://teeterjm58.github.io/jtPortfolio/)
+(https://jonathanteeter.github.io/jtPortfolio/)
