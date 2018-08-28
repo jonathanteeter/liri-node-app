@@ -52,7 +52,7 @@ switch(parameter2) {
 function getTweets() {
 
     // GET last 20 Twitter tweets
-    var params = {screen_name: 'jteeter58'};
+    var params = {screen_name: 'jteeterCO'};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
 
         console.log('-------------------------------------------');
